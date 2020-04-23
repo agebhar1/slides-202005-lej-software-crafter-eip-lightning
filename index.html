@@ -1,0 +1,434 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="node_modules/reveal.js/dist/reveal.css" />
+    <link rel="stylesheet" href="node_modules/reveal.js/dist/theme/league.css" />
+    <style>
+      li {
+        list-style: outside url("assets/icons/arrowr.svg");
+      }
+      .reveal section img {
+        border: 1px solid #eee;
+      }
+      .no_border {
+        background: none !important;
+        border: none !important;
+        box-shadow: none !important;
+      }
+      .icon {
+        height: 20px;
+      }
+      .icon__small {
+        height: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1 style="font-size: 2.25em;">Enterprise Integration Patterns</h1>
+          <h2 style="font-size: 1.25em;">17 years later</h2>
+        </section>
+
+        <section>
+          <section>
+            <h2>About Me</h2>
+          </section>
+          <section>
+            <h2>About Me</h2>
+            <h3>Andreas Gebhardt</h3>
+            <ul>
+              <li>Software Engineer</li>
+              <li>Open Source Enthusiast</li>
+              <li>agebhar1@(github|googlemail.com|twitter)</li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>The Task</h2>
+          </section>
+          <section>
+            <h3>Integration</h3>
+            <ul>
+              <li class="fragment">4 departments</li>
+              <li class="fragment">4(+1) systems</li>
+              <li class="fragment">one goal</li>
+              <li class="fragment">XML serialized data</li>
+              <li class="fragment">IBM MQ (Middleware)</li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>The Book</h2>
+          </section>
+          <section>
+            <h2>The Book</h2>
+            <div style="display: flex;">
+              <div style="flex: 1;">
+                <figure>
+                  <img src="https://upload.wikimedia.org/wikipedia/en/a/a0/Enterprise_Integration_Patterns.jpg" alt="cover" />
+                  <figcaption><span style="font-size: 0.25em;">Wikimedia</span></figcaption>
+                </figure>
+              </div>
+              <div style="flex: 1;">
+                <div style="display: flex; flex-direction: column; height: 100%; justify-content: center;">
+                  <ul>
+                    <li class="fragment">
+                      by Gregor Hohpe &<br />
+                      Bobby Woolf
+                    </li>
+                    <li class="fragment">published October 2003</li>
+                    <li class="fragment">700+ pages</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section>
+            <h2>The Book</h2>
+            <h3>Integration Solution</h3>
+            <ul>
+              <li class="fragment shrink">
+                File Transfer <a href="https://www.enterpriseintegrationpatterns.com/patterns/messaging/FileTransferIntegration.html" target="_blank"><img class="no_border icon" src="assets/icons/lnk.svg" /></a>
+              </li>
+              <li class="fragment shrink">
+                Shared Database <a href="https://www.enterpriseintegrationpatterns.com/patterns/messaging/SharedDataBaseIntegration.html" target="_blank"><img class="no_border icon" src="assets/icons/lnk.svg" /></a>
+              </li>
+              <li class="fragment shrink">
+                Remote Procedure Invocation <a href="https://www.enterpriseintegrationpatterns.com/patterns/messaging/EncapsulatedSynchronousIntegration.html" target="_blank"><img class="no_border icon" src="assets/icons/lnk.svg" /></a>
+              </li>
+              <li class="fragment grow">
+                <b>Messaging</b> <a href="https://www.enterpriseintegrationpatterns.com/patterns/messaging/Messaging.html" target="_blank"><img class="no_border icon" src="assets/icons/lnk.svg" /></a>
+              </li>
+            </ul>
+          </section>
+          <section>
+            <h3>Messaging</h3>
+            <ul>
+              <li class="fragment">
+                async, program-to-program communication
+                <ul>
+                  <li>reliable delivery</li>
+                </ul>
+              </li>
+              <li class="fragment">
+                sending packets of data
+                <ul>
+                  <li>messages w/ header & body</li>
+                </ul>
+              </li>
+              <li class="fragment">
+                channels (a.k.a. queues) connect programs
+                <ul>
+                  <li>convey messages</li>
+                  <li>possible shared across multiple computers</li>
+                </ul>
+              </li>
+              <li class="fragment">sender (/producer)</li>
+              <li class="fragment">receiver (/consumer)</li>
+            </ul>
+          </section>
+          <section>
+            <h3>Messaging System</h3>
+            <img class="no_border" src="assets/message-transmission-step-by-step.svg" />
+          </section>
+          <section>
+            <h3>Why?</h3>
+            <ul>
+              <li class="fragment">more immediate than <i>File Transfer</i></li>
+              <li class="fragment">better encapsulation than <i>Shared Database</i></li>
+              <li class="fragment">more reliable than <i>Remote Procedure Invocation</i></li>
+            </ul>
+          </section>
+          <section>
+            <h3>Diagram Notation</h3>
+            <div style="display: flex; height: 200px;">
+              <div style="flex: 1; background-color: #f0f0f035; margin: 6px;">
+                <div style="display: flex; height: 100%; justify-content: center;">
+                  <img class="no_border" src="assets/message.svg" />
+                </div>
+                <div style="font-size: 0.5em; margin-top: 0.25em;">Message</div>
+              </div>
+              <div style="flex: 1; background-color: #f0f0f035; margin: 6px;">
+                <div style="display: flex; height: 100%; justify-content: center;">
+                  <img class="no_border" src="assets/channel.svg" />
+                </div>
+                <div style="font-size: 0.5em; margin-top: 0.25em;">Channel</div>
+              </div>
+              <div style="flex: 1; background-color: #f0f0f035; margin: 6px;">
+                <div style="display: flex; height: 100%; justify-content: center;">
+                  <img class="no_border" src="assets/component.svg" />
+                </div>
+                <div style="font-size: 0.5em; margin-top: 0.25em;">Component</div>
+              </div>
+            </div>
+          </section>
+          <section>
+            <h3>Root Patterns</h3>
+            <div style="display: flex;">
+              <div style="flex: 1;">
+                <div style="display: flex; flex-direction: column; height: 100%; justify-content: center;">
+                  Messaging
+                </div>
+              </div>
+              <div style="flex: 1;">
+                <div style="display: flex; flex-direction: column; height: 100%; justify-content: center;">
+                  <ul>
+                    <li class="fragment fade-in">
+                      Message Channel <a href="https://www.enterpriseintegrationpatterns.com/patterns/messaging/MessageChannel.html" target="_blank"><img class="no_border icon" src="assets/icons/lnk.svg" /></a>
+                    </li>
+                    <li class="fragment fade-in">
+                      Message <a href="https://www.enterpriseintegrationpatterns.com/patterns/messaging/Message.html" target="_blank"><img class="no_border icon" src="assets/icons/lnk.svg" /></a>
+                    </li>
+                    <li class="fragment fade-in">
+                      Pipes and Filters <a href="https://www.enterpriseintegrationpatterns.com/patterns/messaging/PipesAndFilters.html" target="_blank"><img class="no_border icon" src="assets/icons/lnk.svg" /></a>
+                    </li>
+                    <li class="fragment fade-in">
+                      Message Router <a href="https://www.enterpriseintegrationpatterns.com/patterns/messaging/MessageRouter.html" target="_blank"><img class="no_border icon" src="assets/icons/lnk.svg" /></a>
+                    </li>
+                    <li class="fragment fade-in">
+                      Message Translator <a href="https://www.enterpriseintegrationpatterns.com/patterns/messaging/MessageTranslator.html" target="_blank"><img class="no_border icon" src="assets/icons/lnk.svg" /></a>
+                    </li>
+                    <li class="fragment fade-in">
+                      Message Endpoint <a href="https://www.enterpriseintegrationpatterns.com/patterns/messaging/MessageEndpoint.html" target="_blank"><img class="no_border icon" src="assets/icons/lnk.svg" /></a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section>
+            <h3>Root Patterns</h3>
+            <h4>Diagram Notation</h4>
+            <div>
+              <div style="display: flex; height: 200px;">
+                <div style="flex: 1; background-color: #f0f0f035; margin: 6px;">
+                  <div style="display: flex; height: 100%; justify-content: center;">
+                    <img class="no_border" src="assets/channel.svg" />
+                  </div>
+                  <div style="font-size: 0.5em; margin-top: 0.25em;">Message Channel</div>
+                </div>
+                <div style="flex: 1; background-color: #f0f0f035; margin: 6px;">
+                  <div style="display: flex; height: 100%; justify-content: center;">
+                    <img class="no_border" src="assets/message.svg" />
+                  </div>
+                  <div style="font-size: 0.5em; margin-top: 0.25em;">Message</div>
+                </div>
+                <div style="flex: 1; background-color: #f0f0f035; margin: 6px;">
+                  <div style="display: flex; height: 100%; justify-content: center;">
+                    <img class="no_border" src="assets/pipes-and-filters.svg" />
+                  </div>
+                  <div style="font-size: 0.5em; margin-top: 0.25em;">Pipes and Filters</div>
+                </div>
+              </div>
+              <div style="display: flex; margin-top: 30px; height: 200px;">
+                <div style="flex: 1; background-color: #f0f0f035; margin: 6px;">
+                  <div style="display: flex; height: 100%; justify-content: center;">
+                    <img class="no_border" src="assets/message-router.svg" />
+                  </div>
+                  <div style="font-size: 0.5em; margin-top: 0.25em;">Message Router</div>
+                </div>
+                <div style="flex: 1; background-color: #f0f0f035; margin: 6px;">
+                  <div style="display: flex; height: 100%; justify-content: center;">
+                    <img class="no_border" src="assets/message-translator.svg" />
+                  </div>
+                  <div style="font-size: 0.5em; margin-top: 0.25em;">Message Translator</div>
+                </div>
+                <div style="flex: 1; background-color: #f0f0f035; margin: 6px;">
+                  <div style="display: flex; height: 100%; justify-content: center;">
+                    <img class="no_border" src="assets/message-endpoint.svg" />
+                  </div>
+                  <div style="font-size: 0.5em; margin-top: 0.25em;">Message Endpoint</div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Frameworks & Co.</h2>
+          </section>
+          <section>
+            <h3>Apache Camel</h3>
+            <figure>
+              <img class="no_border" style="height: 150px;" src="assets/apache-camel-logo.svg" alt="Apache Camel Logo" />
+              <figcaption>
+                <span style="font-size: 0.35em;"><a href="https://camel.apache.org">https://camel.apache.org</a></span>
+              </figcaption>
+            </figure>
+          </section>
+          <section>
+            <h3>Apache Camel</h3>
+            <div style="display: flex;">
+              <div style="flex: 1;">
+                <div style="height: 100%; justify-content: center; display: flex; align-items: center;">
+                  <img class="no_border" style="height: 150px;" src="assets/apache-camel-logo.svg" alt="Apache Camel Logo" />
+                </div>
+              </div>
+              <div style="flex: 1;">
+                <ul>
+                  <li>since 2007</li>
+                  <li>Java (JVM)</li>
+                  <li>44k+ commits</li>
+                  <li>3.2k+ stars on Github</li>
+                  <li>600+ contributors</li>
+                  <li>latest: 3.3.0 <span style="font-size: 0.5em;">2020/05/10</span></li>
+                </ul>
+              </div>
+            </div>
+          </section>
+          <section>
+            <h3>Apache Camel 3</h3>
+            <div style="font-size: 0.5em;">
+              <div style="display: flex;">
+                <div style="flex: 1;">
+                  <img class="no_border" style="width: 40px;" src="assets/apache-camel-logo.svg" />
+                  <img class="no_border" style="width: 50px; margin-left: 10px;" src="assets/knative.svg" />
+                  <div>
+                    Camel K <a href="https://camel.apache.org/camel-k/latest/index.html" target="_blank"><img class="no_border icon__small" src="assets/icons/lnk.svg" /></a>
+                  </div>
+                </div>
+                <div style="flex: 1;">
+                  <img class="no_border" style="width: 40px;" src="assets/apache-camel-logo.svg" />
+                  <div>
+                    Camel <a href="https://camel.apache.org/manual/latest/" target="_blank"><img class="no_border icon__small" src="assets/icons/lnk.svg" /></a>
+                  </div>
+                </div>
+                <div style="flex: 1;">
+                  <img class="no_border" style="width: 40px;" src="assets/apache-camel-logo.svg" />
+                  <img class="no_border" style="width: 40px; margin-left: 10px;" src="assets/quarkus.svg" />
+                  <div>
+                    Quarkus <a href="https://camel.apache.org/camel-quarkus/latest/" target="_blank"><img class="no_border icon__small" src="assets/icons/lnk.svg" /></a>
+                  </div>
+                </div>
+              </div>
+              <div style="display: flex; margin-top: 50px;">
+                <div style="flex: 1;">
+                  <img class="no_border" style="width: 40px;" src="assets/apache-camel-logo.svg" />
+                  <img class="no_border" style="width: 25px; margin-left: 10px;" src="assets/apache-kafka.svg" />
+                  <div>
+                    Kafka <a href="https://camel.apache.org/camel-kafka-connector/latest/" target="_blank"><img class="no_border icon__small" src="assets/icons/lnk.svg" /></a>
+                  </div>
+                </div>
+                <div style="flex: 1;">
+                  <img class="no_border" style="width: 40px;" src="assets/apache-camel-logo.svg" />
+                  <img class="no_border" style="width: 45px; margin-left: 10px;" src="assets/spring-boot.svg" />
+                  <div>
+                    Spring Boot <a href="https://camel.apache.org/camel-spring-boot/latest/" target="_blank"><img class="no_border icon__small" src="assets/icons/lnk.svg" /></a>
+                  </div>
+                </div>
+                <div style="flex: 1;">
+                  <img class="no_border" style="width: 40px;" src="assets/apache-camel-logo.svg" />
+                  <img class="no_border" style="width: 45px; margin-left: 10px;" src="assets/apache-karaf.svg" />
+                  <div>
+                    Karaf <a href="https://camel.apache.org/camel-karaf/latest/" target="_blank"><img class="no_border icon__small" src="assets/icons/lnk.svg" /></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style="font-size: 0.25em; margin-top: 5em;">images from <a href="https://camel.apache.org/">https://camel.apache.org/</a></div>
+          </section>
+          <section>
+            <h3>Spring Integration</h3>
+            <figure>
+              <img class="no_border" style="height: 150px;" src="assets/spring-integration.svg" alt="Spring Integration Logo" />
+              <figcaption>
+                <span style="font-size: 0.35em;"><a href="https://spring.io/projects/spring-integration">https://spring.io/projects/spring-integration</a></span>
+              </figcaption>
+            </figure>
+          </section>
+          <section>
+            <h3>Spring Integration</h3>
+            <div style="display: flex;">
+              <div style="flex: 1;">
+                <div style="height: 100%; justify-content: center; display: flex; align-items: center;">
+                  <img class="no_border" style="height: 150px;" src="assets/spring-integration.svg" alt="Spring Integration Logo" />
+                </div>
+              </div>
+              <div style="flex: 1;">
+                <ul>
+                  <li>since 2007</li>
+                  <li>Java (JVM)</li>
+                  <li>10k+ commits</li>
+                  <li>1k+ stars on Github</li>
+                  <li>140 contributors</li>
+                  <li>latest: 5.2.6 <span style="font-size: 0.5em;">2020/04/29</span></li>
+                </ul>
+              </div>
+            </div>
+          </section>
+          <section>
+            <h3>Components/Endpoints</h3>
+            <ul>
+              <li class="fragment">File</li>
+              <li class="fragment">HTTP</li>
+              <li class="fragment">FTP/FTPS/SFTP</li>
+              <li class="fragment">JDBC</li>
+              <li class="fragment">Mail</li>
+              <li class="fragment">XML</li>
+              <li class="fragment">... many more (even more in Camel)</li>
+            </ul>
+          </section>
+          <section>
+            <h3>Others</h3>
+            <ul>
+              <li class="fragment">
+                Alpakka <a href="https://doc.akka.io/docs/alpakka/current/patterns.html" target="_blank"><img class="no_border icon" src="assets/icons/lnk.svg" /></a>
+              </li>
+              <li class="fragment">
+                MassTransit <a href="https://github.com/MassTransit/MassTransit" target="_blank"><img class="no_border icon" src="assets/icons/lnk.svg" /></a>
+              </li>
+              <li class="fragment">
+                Mule Runtime Engine <a href="https://docs.mulesoft.com/mule-runtime/4.2/understanding-enterprise-integration-patterns-using-mule" target="_blank"><img class="no_border icon" src="assets/icons/lnk.svg" /></a>
+              </li>
+              <li class="fragment">
+                NServiceBus <a href="https://docs.particular.net/tutorials/quickstart" target="_blank"><img class="no_border icon" src="assets/icons/lnk.svg" /></a>
+              </li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Demo</h2>
+          </section>
+          <section>
+            <h3>Bundesliga Seasons Standings Web Scrape</h3>
+            <div style="background-color: #f0f0f035;">
+              <img class="no_border" style="height: 450px;" src="assets/demo.svg" alt="Demo" />
+            </div>
+          </section>
+        </section>
+
+        <section>
+          <h2>Thank You!</h2>
+        </section>
+
+        <section>
+          <h2>References/Links</h2>
+          <ul style="font-size: 0.6em;">
+            <li><a href="https://www.enterpriseintegrationpatterns.com/index.html">www.enterpriseintegrationpatterns.com</a></li>
+            <li>Wikipedia <a href="https://en.wikipedia.org/wiki/Enterprise_Integration_Patterns">https://en.wikipedia.org/wiki/Enterprise_Integration_Patterns</a></li>
+            <li>Apache Camel <a href="https://camel.apache.org">https://camel.apache.org</a></li>
+            <li>Spring Integration <a href="https://spring.io/projects/spring-integration">https://spring.io/projects/spring-integration</a></li>
+            <li>Alpakka <a href="https://doc.akka.io/docs/alpakka/current/">https://doc.akka.io/docs/alpakka/current/</a></li>
+            <li>MassTransit <a href="https://github.com/MassTransit/MassTransit">https://github.com/MassTransit/MassTransit</a></li>
+            <li>Mule Runtime Engine <a href="https://www.mulesoft.com/platform/mule">https://www.mulesoft.com/platform/mule</a></li>
+            <li>NServiceBus <a href="https://particular.net/nservicebus">https://particular.net/nservicebus</a></li>
+          </ul>
+        </section>
+      </div>
+    </div>
+    <script src="node_modules/reveal.js/dist/reveal.js"></script>
+    <script>
+      Reveal.initialize({
+        hash: true,
+      });
+    </script>
+  </body>
+</html>
