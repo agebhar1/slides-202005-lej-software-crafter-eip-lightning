@@ -1,0 +1,15 @@
+{
+  "name": "slides-202005-lej-software-crafter-eip-lightning",
+  "version": "1.0.0",
+  "description": "Slides for Leipzig Software Crafter Meetup 'Enterprise Integration Patterns - 17 years later'",
+  "main": "gulpfile.js",
+  "keywords": [
+    "slides",
+    "eip",
+    "pattern",
+    "software",
+    "architecture"
+  ],
+  "author": "Andreas Gebhardt",
+  "license": "MIT"
+}
