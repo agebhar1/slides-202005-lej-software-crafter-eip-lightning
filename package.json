@@ -11,5 +11,8 @@
     "architecture"
   ],
   "author": "Andreas Gebhardt",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "reveal.js": "^4.0.1"
+  }
 }
