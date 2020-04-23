@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Slides for Leipzig Software Crafter Meetup 'Enterprise Integration Patterns - 17 years later'",
   "main": "gulpfile.js",
+  "scripts": {
+    "serve": "npx gulp"
+  },
   "keywords": [
     "slides",
     "eip",
@@ -13,6 +16,7 @@
   "author": "Andreas Gebhardt",
   "license": "MIT",
   "dependencies": {
+    "browser-sync": "^2.26.7",
     "gulp": "^4.0.2",
     "reveal.js": "^4.0.1"
   }
