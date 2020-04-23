@@ -13,6 +13,7 @@
   "author": "Andreas Gebhardt",
   "license": "MIT",
   "dependencies": {
+    "gulp": "^4.0.2",
     "reveal.js": "^4.0.1"
   }
 }
