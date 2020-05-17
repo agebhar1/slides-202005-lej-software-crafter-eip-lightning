@@ -1,0 +1,26 @@
+version: '3'
+services:
+
+  app:
+    build: .
+    volumes:
+      - ./data:/var/lib/app/data
+    environment:
+      - KICKER_SEASON_STANDINGS_SCRAPE_PAGE=https://www.kicker.de/1-bundesliga/tabelle/2019-20
+      - KICKER_SEASON_STANDINGS_SCRAPE_TARGETDIRECTORY=/var/lib/app/data
+      - KICKER_SEASON_STANDINGS_SCRAPE_POLLINGDELAY=20s
+
+  prometheus:
+    image: prom/prometheus:v2.18.1
+    volumes:
+      - ./docker-compose.yml.d/prometheus:/etc/prometheus
+
+  grafana:
+    image: grafana/grafana:7.0.0
+    volumes:
+      - ./docker-compose.yml.d/grafana/provisioning:/etc/grafana/provisioning
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=s3cr3t
+    ports:
+      - 3080:3000

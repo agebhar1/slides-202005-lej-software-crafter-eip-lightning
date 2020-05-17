@@ -1,0 +1,17 @@
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - "*"
+
+hawtio:
+  authenticationEnabled: false
+
+kicker:
+  season:
+    standings:
+      scrape:
+        page: https://www.kicker.de/1-bundesliga/tabelle/2019-20
+        polling-delay: 10m
+        target-directory:
