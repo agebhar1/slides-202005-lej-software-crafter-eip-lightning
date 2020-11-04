@@ -24,7 +24,7 @@
 		<!-- dependency version(s) -->
 		<hawtio.version>2.10.0</hawtio.version>
 		<htmlcleaner.version>2.24</htmlcleaner.version>
-		<spotless.version>1.31.1</spotless.version>
+		<spotless.version>2.5.0</spotless.version>
 	</properties>
 
 	<dependencyManagement>
