@@ -22,7 +22,6 @@
 	<properties>
 		<java.version>1.8</java.version>
 		<!-- dependency version(s) -->
-		<guava.version>29.0-jre</guava.version>
 		<hawtio.version>2.10.0</hawtio.version>
 		<htmlcleaner.version>2.24</htmlcleaner.version>
 		<spotless.version>1.31.1</spotless.version>
@@ -30,11 +29,6 @@
 
 	<dependencyManagement>
 		<dependencies>
-			<dependency>
-				<groupId>com.google.guava</groupId>
-				<artifactId>guava</artifactId>
-				<version>${guava.version}</version>
-			</dependency>
 			<dependency>
 				<groupId>io.hawt</groupId>
 				<artifactId>hawtio-springboot</artifactId>
@@ -49,10 +43,6 @@
 	</dependencyManagement>
 
 	<dependencies>
-		<dependency>
-			<groupId>com.google.guava</groupId>
-			<artifactId>guava</artifactId>
-		</dependency>
 		<dependency>
 			<groupId>io.hawt</groupId>
 			<artifactId>hawtio-springboot</artifactId>
