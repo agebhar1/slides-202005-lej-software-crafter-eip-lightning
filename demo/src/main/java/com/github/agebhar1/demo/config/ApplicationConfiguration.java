@@ -15,12 +15,14 @@
  */
 package com.github.agebhar1.demo.config;
 
-import static java.time.Clock.systemUTC;
+import io.micrometer.core.instrument.MeterRegistry;
+import io.micrometer.prometheus.PrometheusMeterRegistry;
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
 
 import java.time.Clock;
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Component;
+import static java.time.Clock.systemUTC;
 
 @Component
 public class ApplicationConfiguration {
@@ -28,6 +30,11 @@ public class ApplicationConfiguration {
 	@Bean
 	public Clock clock() {
 		return systemUTC();
+	}
+
+	@Bean
+	public MeterRegistry meterRegistry(PrometheusMeterRegistry registry) {
+		return registry;
 	}
 
 }
