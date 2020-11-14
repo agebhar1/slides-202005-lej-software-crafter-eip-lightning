@@ -23,12 +23,12 @@ import java.io.File;
 import java.net.URL;
 import java.time.Clock;
 import java.time.Instant;
-import java.util.function.Supplier;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.expression.spel.standard.SpelExpressionParser;
+import org.springframework.integration.core.MessageSource;
 import org.springframework.integration.dsl.IntegrationFlow;
 import org.springframework.integration.dsl.IntegrationFlows;
 import org.springframework.integration.file.dsl.FileWritingMessageHandlerSpec;
@@ -71,9 +71,10 @@ public class KickerSeasonStandingsScrape {
 		final String scheme = page.getProtocol();
 		final String authority = page.getAuthority();
 
-		final Supplier<?> pageSupplier = () -> MessageBuilder //
+		final MessageSource<String> pageSupplier = () -> MessageBuilder //
 				.withPayload(page.toString()) //
-				.setCorrelationId(randomUUID());
+				.setCorrelationId(randomUUID()) //
+				.build();
 
 		return IntegrationFlows //
 
