@@ -22,7 +22,7 @@
 	<properties>
 		<java.version>1.8</java.version>
 		<!-- dependency version(s) -->
-		<hawtio.version>2.11.1</hawtio.version>
+		<hawtio.version>2.12.0</hawtio.version>
 		<htmlcleaner.version>2.24</htmlcleaner.version>
 		<spotless.version>2.6.0</spotless.version>
 	</properties>
