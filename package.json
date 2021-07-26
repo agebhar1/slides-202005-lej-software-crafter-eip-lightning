@@ -16,7 +16,7 @@
   "author": "Andreas Gebhardt",
   "license": "MIT",
   "dependencies": {
-    "browser-sync": "^2.26.13",
+    "browser-sync": "^2.27.4",
     "gulp": "^4.0.2",
     "reveal.js": "^4.1.3"
   }
