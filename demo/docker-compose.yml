@@ -16,7 +16,7 @@ services:
       - ./docker-compose.yml.d/prometheus:/etc/prometheus
 
   grafana:
-    image: grafana/grafana:7.3.5
+    image: grafana/grafana:8.0.6
     volumes:
       - ./docker-compose.yml.d/grafana/provisioning:/etc/grafana/provisioning
     environment:
