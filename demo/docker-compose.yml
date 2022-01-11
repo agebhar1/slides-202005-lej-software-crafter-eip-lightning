@@ -11,7 +11,7 @@ services:
       - KICKER_SEASON_STANDINGS_SCRAPE_POLLINGDELAY=20s
 
   prometheus:
-    image: prom/prometheus:v2.30.3
+    image: prom/prometheus:v2.32.1
     volumes:
       - ./docker-compose.yml.d/prometheus:/etc/prometheus
 
